@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+    <title>Simulador de Investimentos</title>
+</head>
+<body>
+
+    <h1>Simulador de Investimentos</h1>
+
+    <main>        
+
+        <section class="container-inputs">
+
+            <p class="subtitulo">Rendimento <img src="img/info_black_24dp.svg" alt=""></p>
+            
+            <div class="btn-grupo">
+                <button onclick="selecionaBtn1(this.id)" id="bruto" class="btn-esq btn-bruto">Bruto</button>
+                <button onclick="selecionaBtn1(this.id)" id="liquido" class="btn-esq btn-liquido">Líquido</button>
+            </div>
+
+            <div>
+                <label id="label-0" for="">Aporte Inicial <span class="tipo-dado">R$</span></label>
+                <input id="aporte-inicial" type="text" size="12" onKeyUp="mascaraMoeda(this, event)">
+                <label id="verifica-0" for="" class="label-corrige">O aporte Inicial deve sem um valor em reais</label>
+            </div>
+
+            <div>
+                <label id="label-2"l for="">Prazo (em meses)</label>
+                <input id="prazo-meses" type="number">
+                <label id="verifica-2"  for="" class="label-corrige">Por favor, selecione um prazo em meses</label>
+            </div>
+
+            <div>
+                <label for="">IPCA (ao ano)</label>
+                <input id="input-ipca" type="text" disabled>
+            </div>
+
+            <button class="btn-limpar" onclick="limparCampos()">Limpar Campos</button> <!-- Chama a função que limpa os campos -->
+            
+
+        </section>
+
+        <section class="container-inputs">
+
+            <p class="subtitulo">Tipo de indexação <img src="img/info_black_24dp.svg" alt=""></p>
+            
+            <div class="btn-grupo">
+                <button onclick="selecionaBtn2(this.id)" id="pre" class="btn-dir btn-pre">PRÉ</button>
+                <button onclick="selecionaBtn2(this.id)" id="pos" class="btn-dir btn-pos">PÓS</button>
+                <button onclick="selecionaBtn2(this.id)" id="ipca" class="btn-dir btn-fixado">FIXADO</button>
+            </div>
+
+            <div>
+                <label id="label-1" for="">Aporte Mensal <span class="tipo-dado">R$</span></label>
+                <input id="aporte-mensal" type="text" size="12" onKeyUp="mascaraMoeda(this, event)">
+                <label id="verifica-1"  for="" class="label-corrige">O aporte Mensal deve sem um valor em reais</label>
+            </div>
+
+            <div>
+                <label id="label-3" for="">Rentabilidade <span class="tipo-dado">%</span></label>
+                <input id="rentabilidade" type="number">
+                <label id="verifica-3"  for="" class="label-corrige">Por favor, selecione o percentual de rentabilidade</label>
+            </div>
+
+            <div>
+                <label for="">CDI (ao ano)</label>
+                <input id="input-cdi" type="text" disabled>
+            </div>
+
+            <button onclick="trazResultados()" class="btn-simular">Simular</button> <!-- Chama a função que faz o GET e monta os resultados os campos -->  
+
+        </section>
+
+        <section class="container-resultados">
+            
+        </section>
+
+    </main>
+    
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+</body>
+</html>
